@@ -2,17 +2,21 @@
 
 ## **[수업 목표]**
 
-**1. 앱 개발 준비 - 리액트 네이티브(기술) & Expo(도구) 소개 및 설치** \
-**2. 앱 화면 만들기** \
-**3. 앱에서 자주 사용되는 자바스크립트 연습하기**
+1. 앱 개발 준비 - 리액트 네이티브(기술) & Expo(도구) 소개 및 설치
+2. 앱 화면 만들기
+3. 앱에서 자주 사용되는 자바스크립트 연습하기
 
 ---
 
-### 1. 리액트 네이티브 = 리액트(React) + 네이티브(Native)
+<br />
+
+### **1. 리액트 네이티브 = 리액트(React) + 네이티브(Native)**
 
 - 리액트 네이티브는 자바스크립트 언어 하나로 AOS 와 IOS 두 가지 OS 의 앱을 모두 만들어주는 라이브러리입니다.
 
-### 2. Expo
+<br />
+
+### **2. Expo**
 
 - 링크: https://expo.dev/signup
 - 리액트 네이티브로 앱을 개발할 때, AOS & IOS 코드를 건드려야 하는 대부분의 상황을 건드리지 않아도 되게끔 도와주는 툴입니다.
@@ -22,9 +26,11 @@
 - 앱 생성: `expo init sparta-myhoneytip-yonikim`
 - 앱 실행: `expo start`
 
-### 3. JSX
+<br />
 
-#### 1. 모든 태그는 리액트 네이티브에서 제공해주는, 이미 존재하는 태그 문법을 가져와서 사용해야 합니다.
+### **3. JSX**
+
+#### 1) 모든 태그는 리액트 네이티브에서 제공해주는, 이미 존재하는 태그 문법을 가져와서 사용해야 합니다.
 
 - 공식 사용 설명서: https://reactnative.dev/docs/view?redirected
 
@@ -43,7 +49,9 @@ export default function App() {
 }
 ```
 
-#### 2. 태그는 항상 닫는 태그와 자체적으로 닫는 태그를 구분해서 사용해야 합니다.
+<br />
+
+#### 2) 태그는 항상 닫는 태그와 자체적으로 닫는 태그를 구분해서 사용해야 합니다.
 
 ```jsx
 export default function App() {
@@ -58,7 +66,9 @@ export default function App() {
 }
 ```
 
-#### 3. 모든 엘리먼트(`<>`)는 감싸는 최상위 엘리먼트가 있어야 합니다.
+<br />
+
+#### 3) 모든 엘리먼트(`<>`)는 감싸는 최상위 엘리먼트가 있어야 합니다.
 
 ```jsx
 // App.js가 렌더링 하고 엘리먼트는 결국
@@ -103,9 +113,13 @@ export default function App() {
 }
 ```
 
-#### 4. `return` 에 의해 렌더링 될 땐 항상 소괄호로 감싸져야 합니다.
+<br />
 
-#### 5. JSX 문법 밖에서의 주석과 안에서의 주석은 다릅니다.
+#### 4) `return` 에 의해 렌더링 될 땐 항상 소괄호로 감싸져야 합니다.
+
+<br />
+
+#### 5) JSX 문법 밖에서의 주석과 안에서의 주석은 다릅니다.
 
 ```jsx
 //JSX밖에서의 주석
@@ -138,9 +152,11 @@ const styles = StyleSheet.create({
 });
 ```
 
+<br />
+
 ### 4. 화면을 구성하는 엘리먼트
 
-#### 1. `<View>`
+#### 1) `<View>`
 
 ```jsx
 import { StatusBar } from "expo-status-bar";
@@ -172,7 +188,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-#### 2. `<Text>`
+<br />
+
+#### 2) `<Text>`
 
 ```jsx
 import React from "react";
@@ -206,7 +224,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-#### 3. `<ScrollView>`
+<br />
+
+#### 3) `<ScrollView>`
 
 ```jsx
 import React from "react";
@@ -258,7 +278,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-#### 4. `<Button>`
+<br />
+
+#### 4) `<Button>`
 
 ```jsx
 import React from "react";
@@ -310,7 +332,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-#### 5. `<TouchableOpacity>`
+<br />
+
+#### 5) `<TouchableOpacity>`
 
 ```jsx
 import React from "react";
@@ -362,7 +386,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-#### 6. `<Image>`
+<br />
+
+#### 6) `<Image>`
 
 ```jsx
 import React from "react";
@@ -398,6 +424,63 @@ const styles = StyleSheet.create({
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
+  },
+});
+```
+
+<br />
+
+### 5. StyleSheet
+
+```jsx
+import React from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>스파르타 코딩클럽!!</Text>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    //영역을 잡는 속성입니다. 따로 자세히 다룹니다.
+    //flex: 1은 전체 화면을 가져간다는 뜻입니다
+    flex: 1,
+    //영역의 배경 색을 결정합니다
+    backgroundColor: "#fff",
+    //아래 두 속성은 영역 안의 컨텐츠들의 배치를 결정합니다.
+    //flex를 자세히 다룰때 같이 자세히 다룹니다
+    justifyContent: "center",
+    alignContent: "center",
+  },
+  textContainer: {
+    //영역의 바깥 공간 이격을 뜻합니다(하단 이미지 참조)
+    margin: 10,
+    //영역 안의 컨텐츠 이격 공간을 뜻합니다(하단 이미지 참조)
+    padding: 10,
+    //테두리의 구부러짐을 결정합니다. 지금 보면 조금 둥글죠?
+    borderRadius: 10,
+    //테두리의 두께를 결정합니다
+    borderWidth: 2,
+    //테두리 색을 결정합니다
+    borderColor: "#000",
+    //테구리 스타일을 결정합니다. 실선은 solid 입니다
+    borderStyle: "dotted",
+  },
+  textStyle: {
+    //글자 색을 결정합니다. rgb, 값 이름, 색상코드 모두 가능합니다
+    color: "red",
+    //글자의 크기를 결정합니다
+    fontSize: 20,
+    //글자의 두께를 결정합니다
+    fontWeight: "700",
+    //가로기준으로 글자의 위치를 결정합니다
+    textAlign: "center",
   },
 });
 ```
