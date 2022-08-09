@@ -484,3 +484,195 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+<br />
+
+### 6. Flex
+
+#### 1) flex
+
+- 영역을 차지하는 속성으로 상대적입니다.
+
+```jsx
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.containerOne}></View>
+      <View style={styles.containerTwo}>
+        <View style={styles.innerOne}></View>
+        <View style={styles.innerTwo}></View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  containerOne: {
+    flex: 1,
+    backgroundColor: "red",
+  },
+  containerTwo: {
+    flex: 2,
+    backgroundColor: "yellow",
+  },
+  innerOne: {
+    flex: 1,
+    backgroundColor: "blue",
+  },
+  innerTwo: {
+    flex: 4,
+    backgroundColor: "orange",
+  },
+});
+```
+
+<br />
+
+#### 2) flexDirection
+
+- 자리 잡은 영역의 방향입니다.
+
+```jsx
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.containerOne}></View>
+      <View style={styles.containerTwo}>
+        <View style={styles.innerOne}></View>
+        <View style={styles.innerTwo}></View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  containerOne: {
+    flex: 1,
+    backgroundColor: "red",
+  },
+  containerTwo: {
+    flex: 2,
+    flexDirection: "row",
+    backgroundColor: "yellow",
+  },
+  innerOne: {
+    flex: 1,
+    backgroundColor: "blue",
+  },
+  innerTwo: {
+    flex: 4,
+    backgroundColor: "orange",
+  },
+});
+```
+
+<br />
+
+#### 3) justifyContent
+
+```jsx
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.containerOne}></View>
+      <View style={styles.containerTwo}>
+        <View style={styles.innerOne}></View>
+        <View style={styles.innerTwo}>
+          <Text>!!컨텐츠!!</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  containerOne: {
+    flex: 1,
+    backgroundColor: "red",
+  },
+  containerTwo: {
+    flex: 2,
+    flexDirection: "row",
+    backgroundColor: "yellow",
+  },
+  innerOne: {
+    flex: 1,
+    backgroundColor: "blue",
+  },
+  innerTwo: {
+    flex: 4,
+    justifyContent: "flex-start",
+    backgroundColor: "orange",
+  },
+});
+```
+
+<br />
+
+#### 4) alignItems
+
+```jsx
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.containerOne}></View>
+      <View style={styles.containerTwo}>
+        <View style={styles.innerOne}></View>
+        <View style={styles.innerTwo}>
+          <View style={styles.content}></View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  containerOne: {
+    flex: 1,
+    backgroundColor: "red",
+  },
+  containerTwo: {
+    flex: 2,
+    flexDirection: "row",
+    backgroundColor: "yellow",
+  },
+  innerOne: {
+    flex: 1,
+    backgroundColor: "blue",
+  },
+  innerTwo: {
+    flex: 4,
+    backgroundColor: "orange",
+    alignItems: "flex-end",
+  },
+  content: {
+    width: 50,
+    height: 50,
+    backgroundColor: "#000",
+  },
+});
+```
