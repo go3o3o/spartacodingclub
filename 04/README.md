@@ -314,3 +314,56 @@
     },
   });
   ```
+
+### **2. 파이어베이스 (Firebase)**
+
+- 서버리스 (Serverless)
+  - 개발자가 서버를 직접 구성, 관리할 필요가 없는 모델을 의미합니다.
+
+<br />
+
+- 파이어베이스 (Firebase)
+  - 파이어베이스는 구글에서 만든 서버리스 서비스입니다.
+
+<br />
+
+- 설치하기
+
+  ```
+  expo install firebase
+  ```
+
+- firebaseConfig.js
+
+  ```jsx
+  import firebase from "firebase/compat/app";
+
+  // 사용할 파이어베이스 서비스 주석을 해제합니다
+  //import "firebase/compat/auth";
+  import "firebase/compat/database";
+  //import "firebase/compat/firestore";
+  //import "firebase/compat/functions";
+  import "firebase/compat/storage";
+
+  // Initialize Firebase
+  //파이어베이스 사이트에서 봤던 연결정보를 여기에 가져옵니다
+  const firebaseConfig = {
+    apiKey: "AIzaSyBKG2xY91x23W8PF1231k5OUJ5o9kHSKYQeNWUw",
+    authDomain: "sparta-psytest-gun.firebaseapp.com",
+    databaseURL: "https://sparta-psytest-gun.firebaseio.com",
+    //위 databaseURL은 firebase에서 기본제공 해주지 않으니 직접 작성해주세요!
+    projectId: "sparta-psytest-gun",
+    storageBucket: "sparta-psytest-gun.appspot.com",
+    messagingSenderId: "781790378482",
+    appId: "1:78179037128482:web:ddbca5330779f67b947136b",
+    measurementId: "G-3F5L9F3340Q3",
+  };
+
+  //사용 방법입니다.
+  //파이어베이스 연결에 혹시 오류가 있을 경우를 대비한 코드로 알아두면 됩니다.
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  export const firebase_db = firebase.database();
+  ```
